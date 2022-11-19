@@ -13,10 +13,10 @@ public class Main {
             String S = arr[1];
             for (char tmp: S.toCharArray()) {
                 for (int j = 0; j <R ; j++) {
-                    s.append(Character.toString(tmp));
+                    s.append(tmp);
                 }
             }
-            System.out.println(s.toString());
+            System.out.println(s);
         }
     }
 
