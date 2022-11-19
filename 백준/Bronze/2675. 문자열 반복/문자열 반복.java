@@ -12,9 +12,7 @@ public class Main {
             int R = Integer.parseInt(arr[0]);
             String S = arr[1];
             for (char tmp: S.toCharArray()) {
-                for (int j = 0; j <R ; j++) {
-                    s.append(tmp);
-                }
+                s.append(String.valueOf(tmp).repeat(R));
             }
             System.out.println(s);
         }
