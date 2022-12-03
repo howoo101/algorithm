@@ -1,4 +1,4 @@
-import java.io.IOException;
+import java.io.*;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -40,16 +40,26 @@ class Student implements Comparable<Student>{
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Scanner scanner = new Scanner(System.in);
-        int N = scanner.nextInt();
-        scanner.nextLine();
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int N = Integer.parseInt(bf.readLine());
+
         Student[] answer = new Student[N];
 
         for (int i = 0; i < N; i++) {
-            String[] arr = scanner.nextLine().split(" ");
+            String[] arr = bf.readLine().split(" ");
             answer[i] = new Student(arr[0],Integer.parseInt(arr[1]),Integer.parseInt(arr[2]),Integer.parseInt(arr[3]));
         }
-        Arrays.stream(answer).sorted().map(student -> student.name).forEach(System.out::println);
+        Arrays.stream(answer).sorted().map(student -> student.name).forEach(s -> {
+            try {
+                bw.write(s);
+                bw.newLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        bw.flush();
     }
 
 }
