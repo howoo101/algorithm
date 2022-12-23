@@ -1,12 +1,19 @@
 class Solution {
     public int solution(String[] babbling) {
         int answer = 0;
-        for (String s : babbling) {
-            String result = s.replace("aya", " ").replace("ye", " ").replace("woo", " ").replace("ma", " ").replace(" ","");
-
-            if (result.length() == 0) {
-                answer ++;
+        String[] pronunciations = {"aya", "ye", "woo", "ma"};
+        for (String bab : babbling) {
+            int cnt = 0;
+            for (String pronunciation : pronunciations) {
+                if (bab.contains(pronunciation)) {
+                    cnt += pronunciation.length();
+                    if (cnt == bab.length()) {
+                        answer++;
+                        break;
+                    }
+                }
             }
+
         }
         return answer;
     }
