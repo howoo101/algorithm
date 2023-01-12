@@ -4,6 +4,6 @@ def fee(price,count):
         result += (price*i)
     return result
 
+
 def solution(price, money, count):
-    if money - fee(price,count) > 0: return 0
-    else : return abs(money - fee(price,count))
+    return 0 if money - fee(price,count) > 0 else abs(money - fee(price,count))
