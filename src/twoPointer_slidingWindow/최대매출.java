@@ -17,7 +17,7 @@ public class 최대매출 {
                 .mapToInt(Integer::parseInt)
                 .toArray();
         bf.close();
-        System.out.println(new 최대매출().solution(sales, K));
+        System.out.println(new 최대매출().solution2(N,sales, K));
     }
 
     private int solution(int[] sales, int K) {
@@ -28,7 +28,24 @@ public class 최대매출 {
             for (int i = start; i < end; i++) {
                 tmp += sales[i];
             }
-            if(tmp > max) max = tmp;
+            max = Math.max(tmp, max);
+        }
+        return max;
+    }
+
+    private int solution2(int N,int[] sales, int K) {
+        int max = 0;
+        int end = K;
+        for (int start = 0; start <  end; start++) {
+            max += sales[start];
+        }
+        int tmp = max;
+        for(int start = 0; start < sales.length-K; start++,end++) {
+            int nextNum = sales[end];
+            int firstNum = sales[start];
+            tmp += nextNum-firstNum;
+            max = Math.max(tmp, max);
+
         }
         return max;
     }
