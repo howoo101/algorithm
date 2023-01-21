@@ -4,24 +4,16 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 class Solution {
-        public String solution(String s) {
-        
+     public String solution(String s) {
+        StringTokenizer stringTokenizer = new StringTokenizer(s, " ", true);
         StringBuilder sb = new StringBuilder();
-        StringTokenizer stringTokenizer = new StringTokenizer(s," ",true);
-        while (stringTokenizer.hasMoreTokens()) {
-            String s1 = stringTokenizer.nextToken();
-
-            char c = s1.charAt(0);
-            if(Character.isDigit(c)) {
-                sb.append(c);
-            }else if(Character.isLowerCase(c)) {
-                sb.append(Character.toUpperCase(c));
-            }else {
-                sb.append(c);
+            while (stringTokenizer.hasMoreTokens()) {
+                String s1 = stringTokenizer.nextToken();
+                char c = s1.charAt(0);
+                if(Character.isUpperCase(c)) sb.append(c);
+                else sb.append(Character.toUpperCase(c));
+                sb.append(s1.substring(1).toLowerCase());
             }
-            sb.append(s1.substring(1).toLowerCase());
-
-        }
         return sb.toString();
     }
 }
