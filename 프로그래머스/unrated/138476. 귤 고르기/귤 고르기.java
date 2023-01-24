@@ -8,7 +8,7 @@ class Solution {
         Map<Integer,Integer> map = new HashMap<>();
 
         for (int key : tangerine) {
-            map.merge(key, 1, Integer::sum);
+            map.put(key,map.getOrDefault(key, 0)+1);
         }
 
         Integer[] values = map.values().toArray(Integer[]::new);
