@@ -3,7 +3,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Solution {
-  public int solution(int k, int[] tangerine) {
+    public int solution(int k, int[] tangerine) {
+        return k/2;
+    }
+  public int solution2(int k, int[] tangerine) {
         int answer = 1;
         Map<Integer,Integer> map = new HashMap<>();
 
