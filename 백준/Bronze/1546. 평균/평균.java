@@ -1,19 +1,22 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int N = scanner.nextInt();
-        scanner.nextLine();
-        int MAX = Integer.MIN_VALUE;
-        String[] arr = scanner.nextLine().split(" ");
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int countOfSubject = Integer.parseInt(br.readLine());
+        StringTokenizer stringTokenizer = new StringTokenizer(br.readLine());
+        int max = Integer.MIN_VALUE;
         int sum = 0;
-        for(String tmp : arr) {
-            if(MAX<Integer.parseInt(tmp)) MAX = Integer.parseInt(tmp);
-            sum += Integer.parseInt(tmp);
+        while (stringTokenizer.hasMoreTokens()) {
+            int tmp = Integer.parseInt(stringTokenizer.nextToken());
+            sum += tmp;
+            if(max < tmp) max = tmp;
         }
-        System.out.println((double) sum/MAX*100/N);
-
+        double v = sum / (double) max * 100 / countOfSubject;
+        System.out.println(v);
 
     }
 }
