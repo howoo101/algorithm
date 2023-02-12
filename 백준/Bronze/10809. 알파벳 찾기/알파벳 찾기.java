@@ -1,15 +1,15 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String S = scanner.nextLine();
-        StringBuilder s = new StringBuilder();
-        for(char i = 'a'; i <= 'z'; i++) {
-            s.append(S.indexOf(Character.toString(i)));
-            s.append(" ");
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String S = br.readLine();
+        StringBuffer bf = new StringBuffer();
+        for (int i = 'a'; i <= 'z'; i++) {
+            bf.append(S.indexOf(i)).append(" ");
         }
-        System.out.println(s.toString());
+        System.out.println(bf);
     }
-
 }
