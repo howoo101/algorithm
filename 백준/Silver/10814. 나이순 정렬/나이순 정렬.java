@@ -8,18 +8,13 @@ class Person implements Comparable<Person> {
     public Person(int age, String name) {
         this.age = age;
         this.name = name;
-        this.idx++;
     }
-
     int age;
     String name;
-    int idx;
+
     @Override
     public int compareTo(Person o) {
-        if (this.age == o.age) {
-            return this.idx - o.idx;
-        }else if (this.age > o.age) return 1;
-        else return -1;
+        return this.age - o.age;
     }
 
     @Override
